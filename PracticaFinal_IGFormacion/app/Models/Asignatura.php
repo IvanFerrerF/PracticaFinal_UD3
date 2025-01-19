@@ -11,6 +11,13 @@ class Asignatura extends Model
 
     protected $table = 'asignaturas';
 
+    // Campos que pueden ser asignados masivamente
+    protected $fillable = [
+        'nombre',
+        'curso_id',
+        'profesor_id',
+    ];
+
     // Relación: Una asignatura pertenece a un curso
     public function curso()
     {

@@ -11,6 +11,15 @@ class Estudiante extends Model
 
     protected $table = 'estudiantes';
 
+    // Campos que pueden ser asignados masivamente
+    protected $fillable = [
+        'nombre',
+        'apellidos',
+        'email',
+        'telefono',
+        'fecha_nacimiento',
+    ];
+
     // Relación: Un estudiante puede tener muchas matrículas
     public function matriculas()
     {

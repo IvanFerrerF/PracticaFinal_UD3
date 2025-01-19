@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id(); // ID principal
             $table->string('nombre');
             $table->text('descripcion');
-            $table->integer('duracion'); // En semanas o meses
+            $table->string('duracion'); // En semanas o meses
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->timestamps(); // created_at, updated_at

@@ -11,6 +11,13 @@ class Matricula extends Model
 
     protected $table = 'matriculas'; // Nombre de la tabla
 
+    // Campos que pueden ser asignados masivamente
+    protected $fillable = [
+        'curso_id',
+        'estudiante_id',
+        'fecha_matricula',
+    ];
+
     // Relación: Una matrícula pertenece a un estudiante
     public function estudiante()
     {

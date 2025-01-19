@@ -15,6 +15,14 @@ class Evaluacion extends Model
 
     protected $table = 'evaluaciones'; // Nombre de la tabla
 
+    // Campos que pueden ser asignados masivamente
+    protected $fillable = [
+        'estudiante_id',
+        'asignatura_id',
+        'curso_id',
+        'nota',
+    ];
+
     // Relación: Una evaluación pertenece a un estudiante
     public function estudiante()
     {

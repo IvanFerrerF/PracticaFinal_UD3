@@ -11,6 +11,15 @@ class Curso extends Model
 
     protected $table = 'cursos'; // Nombre de la tabla
 
+    // Campos que pueden ser asignados masivamente
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'duracion',
+        'fecha_inicio',
+        'fecha_fin',
+    ];
+
     // Relación: Un curso tiene muchas asignaturas
     public function asignaturas()
     {

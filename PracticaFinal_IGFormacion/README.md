@@ -147,7 +147,185 @@ Para trabajar en este proyecto, necesitarás los siguientes componentes instalad
 
 Este procedimiento asegura que cualquier desarrollador pueda levantar el proyecto desde cero siguiendo los pasos descritos. Además, incluir herramientas como Postman y Docker mejora la profesionalidad y la facilidad de despliegue del proyecto.
 
+## Requisitos tecnológicos y cómo instalarlos
 
+A continuación, se describen los pasos para instalar las herramientas necesarias para trabajar en este proyecto.
+
+### PHP
+
+PHP es el lenguaje en el que se desarrolla Laravel. Necesitarás al menos la versión 8.1.
+
+#### Instalación en Ubuntu 
+
+Actualiza el sistema:
+```bash
+sudo apt update && sudo apt upgrade
+```
+Agrega el repositorio de PHP:
+```bash
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+```
+Instala PHP y las extensiones necesarias:
+```bash
+sudo apt install php8.1 php8.1-cli php8.1-fpm php8.1-mysql php8.1-xml php8.1-mbstring php8.1-curl php8.1-zip
+```
+Verifica la instalación:
+```bash
+    php -v
+```
+#### Instalación en Windows
+
+Descarga el instalador de PHP desde la página oficial:  
+[Descargar PHP para Windows](https://windows.php.net/download/)
+
+Extrae los archivos en una carpeta, por ejemplo, `C:\php`.
+Agrega `C:\php` al Path en las variables de entorno.
+
+Verifica la instalación abriendo una terminal y ejecutando:
+
+```bash
+    php -v
+```
+#### Instalación en macOS
+
+    Instala Homebrew si no lo tienes:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+Instala PHP con Homebrew:
+```bash
+brew install php
+```
+Verifica la instalación:
+```
+    php -v
+```
+### Composer
+
+Composer es el gestor de dependencias para PHP y se requiere para instalar Laravel.
+
+#### Instalación en cualquier sistema operativo
+
+Descarga Composer ejecutando:
+```bash
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+```
+Mueve el ejecutable a una ubicación accesible globalmente:
+```bash
+sudo mv composer.phar /usr/local/bin/composer
+```
+Verifica la instalación:
+```bash
+    composer --version
+```
+#### Instalación en Windows
+
+Descarga el instalador desde:
+https://getcomposer.org/Composer-Setup.exe
+Sigue las instrucciones del instalador.
+
+Verifica la instalación:
+
+    composer --version
+
+### Docker y Docker Compose
+
+Docker se utiliza para crear el contenedor de MariaDB.
+Instalación en Ubuntu
+
+#### Instala Docker:
+
+    sudo apt update
+    sudo apt install docker.io
+
+Habilita Docker para que se inicie automáticamente:
+
+    sudo systemctl start docker
+    sudo systemctl enable docker
+
+#### Instala Docker Compose:
+
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+
+Verifica las instalaciones:
+
+    docker --version
+    docker-compose --version
+
+#### Instalación en Windows y macOS
+
+Descarga Docker Desktop desde:
+https://www.docker.com/products/docker-desktop
+Instálalo siguiendo las instrucciones del instalador.
+    Verifica la instalación:
+
+    docker --version
+    docker-compose --version
+    
+### Laravel
+
+Laravel se instala usando Composer.
+
+Instala el instalador global de Laravel:
+
+    composer global require laravel/installer
+
+Agrega el directorio global de Composer a tu PATH:
+
+    export PATH="$HOME/.config/composer/vendor/bin:$PATH"  # Ubuntu/Linux
+
+Verifica la instalación:
+
+    laravel --version
+
+### MariaDB
+
+MariaDB será la base de datos utilizada en este proyecto.
+Instalación en Ubuntu
+
+#### Instala MariaDB:
+
+    sudo apt update
+    sudo apt install mariadb-server mariadb-client
+
+Inicia el servicio:
+
+    sudo systemctl start mariadb
+    sudo systemctl enable mariadb
+
+Asegura la instalación:
+
+    sudo mysql_secure_installation
+
+#### Instalación en Windows y macOS
+
+Descarga MariaDB desde:
+https://mariadb.org/download/
+Sigue las instrucciones del instalador.
+
+### Postman
+
+Postman es una herramienta para probar las APIs.
+
+Descarga Postman desde:
+https://www.postman.com/downloads/
+Instálalo siguiendo las instrucciones para tu sistema operativo.
+
+### VS Code
+
+VS Code es el editor de texto recomendado.
+
+Descarga VS Code desde:
+https://code.visualstudio.com/
+
+  Instálalo y agrega extensiones útiles:
+      Laravel Extension Pack
+      PHP Intelephense
+      Docker
 
 
 

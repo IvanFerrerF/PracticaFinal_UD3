@@ -1,66 +1,155 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistema de Gestión Académica IGFormación
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descripción del problema
 
-## About Laravel
+IGFormación es un centro de estudios que ofrece programas de formación profesional superior en **Desarrollo de Aplicaciones Multiplataforma (DAM)** y **Desarrollo de Aplicaciones Web (DAW)**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+La dirección del centro desea un sistema de gestión académica que facilite la administración de:
+- **Estudiantes:** Registrar datos personales como nombre, apellidos, email, teléfono y fecha de nacimiento.
+- **Cursos:** Gestionar cursos con su información básica, duración, y fechas.
+- **Asignaturas:** Asociar asignaturas específicas a cada curso, indicando el profesor encargado.
+- **Profesores:** Registrar datos personales de los profesores y las asignaturas que imparten.
+- **Matrículas:** Administrar la relación entre estudiantes y cursos, registrando la fecha de matrícula.
+- **Evaluaciones:** Registrar las notas de los estudiantes por cada asignatura, calcular su promedio y generar estadísticas.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Funcionalidades principales
+El sistema permitirá:
+1. **Registro de estudiantes:** Capturar y almacenar sus datos personales.
+2. **Gestión de profesores:** Registrar y consultar los datos de los profesores, y asociarlos con asignaturas.
+3. **Gestión de cursos:** Crear, editar y consultar información sobre los cursos disponibles.
+4. **Gestión de matrículas:** Asociar estudiantes a los cursos que cursan, registrando la fecha de inscripción.
+5. **Gestión de asignaturas:** Registrar asignaturas específicas y asignar profesores y cursos.
+6. **Evaluaciones:** Almacenar las notas de los estudiantes y calcular automáticamente:
+   - Promedio de notas por estudiante.
+   - Porcentaje de aprobados por asignatura.
+   - Porcentaje de aprobados por curso.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Objetivo del sistema
+Proporcionar una herramienta eficiente que facilite:
 
-## Learning Laravel
+   - La planificación académica, tanto de cursos como de asignaturas.
+   - El seguimiento del progreso de los estudiantes y las evaluaciones.
+   - La gestión administrativa de profesores y matrículas.
+   - La toma de decisiones basada en datos analíticos, como estadísticas de aprobados y promedios.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Diagrama del modelo entidad-relación (E-R)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![Diagrama IGFormación](./IGFormaciónDiagramTernaria.drawio.png)
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Way of Working (WoW)
 
-### Premium Partners
+### Requisitos tecnológicos
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Para trabajar en este proyecto, necesitarás los siguientes componentes instalados y configurados en tu entorno de desarrollo:
 
-## Contributing
+- **Sistema Operativo**: 
+  - Cualquier distribución de Linux compatible (probado en Ubuntu 22.04 y derivados).
+  - También funciona en Windows y macOS con las configuraciones apropiadas.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Dependencias principales**:
+  - **PHP**: >= 8.1 (Incluyendo extensiones necesarias como `php-mysql` y `php-xml`).
+  - **Composer**: Gestor de dependencias para PHP.
+  - **Docker y Docker Compose**: Para la base de datos MariaDB.
+  - **Laravel 11.x**: Framework PHP utilizado para desarrollar este proyecto.
 
-## Code of Conduct
+- **Servicios requeridos**:
+  - **Servidor de base de datos**: MariaDB.
+  - **Servidor local**: Servidor integrado de Laravel (`php artisan serve`).
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Herramientas opcionales**:
+  - **Postman**: Para probar y validar las APIs.
+  - **VS Code**: Editor de texto recomendado con extensiones para Laravel y PHP.
+  - **Git**: Control de versiones para el proyecto.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Pasos para ejecutar el proyecto
 
-## License
+1. **Clonar el repositorio**
+   - Abre una terminal y ejecuta:
+     ```bash
+     git clone https://github.com/IvanFerrerF/PracticaFinal_IGFormacion.git
+     cd PracticaFinal_IGFormacion
+     ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. **Instalar dependencias**
+   - Instala las dependencias de Laravel con Composer:
+     ```bash
+     composer install
+     ```
+
+3. **Configurar el entorno**
+   - Copia el archivo `.env.example` y renómbralo como `.env`:
+     ```bash
+     cp .env.example .env
+     ```
+   - Edita el archivo `.env` para establecer los detalles de conexión a la base de datos:
+     ```env
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=igformacion
+     DB_USERNAME=root
+     DB_PASSWORD=m1_s3cr3t
+     ```
+
+4. **Levantar la base de datos**
+   - Asegúrate de que Docker esté en ejecución.
+   - Construye y ejecuta el contenedor de MariaDB:
+     ```bash
+     docker start mariadb-server
+     docker exec -it mariadb-server mariadb -u root -p
+     ```
+   - En el cliente de MariaDB, crea la base de datos:
+     ```sql
+     CREATE DATABASE igformacion;
+     ```
+
+5. **Migrar la base de datos**
+   - Limpia la configuración en caché:
+     ```bash
+     php artisan config:clear
+     ```
+   - Ejecuta las migraciones para crear las tablas:
+     ```bash
+     php artisan migrate
+     ```
+
+6. **Rellenar datos iniciales**
+   - Utiliza los seeders y factories para poblar la base de datos con datos de prueba:
+     ```bash
+     php artisan db:seed
+     ```
+
+7. **Arrancar el servidor**
+   - Levanta el servidor de desarrollo:
+     ```bash
+     php artisan serve
+     ```
+   - Accede al sistema en tu navegador:
+     ```
+     http://127.0.0.1:8000
+     ```
+
+8. **Probar las APIs**
+   - Abre Postman y realiza pruebas de las rutas configuradas en `routes/api.php`.
+   - Las rutas deben responder con datos en formato JSON si se incluye el encabezado:
+     ```
+     accept: application/json
+     ```
+
+---
+
+### Consideraciones finales
+
+Este procedimiento asegura que cualquier desarrollador pueda levantar el proyecto desde cero siguiendo los pasos descritos. Además, incluir herramientas como Postman y Docker mejora la profesionalidad y la facilidad de despliegue del proyecto.
+
+
+
+
+
+
+

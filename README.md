@@ -35,7 +35,7 @@ Proporcionar una herramienta eficiente que facilite:
 
 ### Diagrama del modelo entidad-relación (E-R)
 
-![Diagrama IGFormación](./IGFormaciónDiagramTernaria.drawio.png)
+![Diagrama IGFormación](./PracticaFinal_IGFormacion/IGFormaciónDiagramTernaria.drawio.png)
 
 ---
 
